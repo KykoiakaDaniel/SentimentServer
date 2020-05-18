@@ -70,17 +70,18 @@ function readNegative () {
 }
 
 function trainModel() {
-    for (let i = 0; i < 10000; i++) {
+    for (let i = 0; i < 30000; i++) {
         classifier.addDocument(positiveArray[i], 'good'); 
     };
 
-    for (let i = 0; i < 10000; i++) {
+    for (let i = 0; i < 30000; i++) {
         classifier.addDocument(negativeArray[i], 'bads');
     };
 
     classifier.train();
 
     console.log('Обучено');
+    getAccuracy();
 }
 
 function getSentiment(arrayComments) {
@@ -121,7 +122,7 @@ function getAccuracy() {
     console.log(countTrue);
 
     let countFalse = 0;
-    for (let i = 30000; i < 31000; i++) {
+    for (let i = 34000; i < 35000; i++) {
         if (classifier.classify(negativeArray[i]) == 'bads') {
             countFalse++;
         }
