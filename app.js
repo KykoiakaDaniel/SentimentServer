@@ -94,12 +94,6 @@ function getSentiment(arrayComments) {
         } else if (!elem.text.match(/[а-яА-Я]/)) {
             result = 'neutral'
         } else {
-            // result = classifier.getClassifications(elem.text);
-            // if (result[0].value > result[1].value * 2) {
-            //     result = result[0].label;
-            // } else {
-            //     result = 'neutral'
-            // }
             result = classifier.classify(elem.text);
         }
         arraySentiment.push(
